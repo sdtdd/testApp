@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario Kart 3D - レーシングゲーム</title>
+  <script type="module" crossorigin src="/assets/index-Bdlx2MCl.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/three-C0cLVosh.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-BUpDI2Su.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="hud">
+            <div id="speed-display">0 km/h</div>
+            <div id="lap-display">LAP 1/3</div>
+            <div id="position-display">1st</div>
+            <div id="course-display"></div>
+        </div>
+        <div id="item-display"></div>
+        <div id="message-toast"></div>
+        <div id="minimap-container">
+            <canvas id="minimap" width="200" height="200"></canvas>
+        </div>
+        <div id="start-screen">
+            <h1>🏎️ Mario Kart 3D 🏁</h1>
+            <p>矢印キー / WASD で運転！ | スペース = ドリフト | E = アイテム使用</p>
+            <div id="course-list"></div>
+            <button id="start-btn">スタート!</button>
+        </div>
+        <div id="race-countdown" class="hidden">
+            <span id="countdown-text"></span>
+        </div>
+        <div id="finish-screen" class="hidden">
+            <h2 id="result-text"></h2>
+            <button id="restart-btn">もう一度!</button>
+            <button id="course-btn">別のコースを選ぶ</button>
+        </div>
+    </div>
+</body>
+</html>

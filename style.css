@@ -1,0 +1,85 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    background: #1a1a2e;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#game-container { width: 100vw; height: 100vh; position: relative; }
+#game-container canvas { display: block; }
+#hud {
+    position: absolute; top: 15px; left: 15px; color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8); pointer-events: none; z-index: 10;
+}
+#speed-display { font-weight: bold; font-size: 28px; color: #ffdd00; }
+#lap-display { margin-top: 5px; font-size: 20px; color: #fff; }
+#position-display { margin-top: 5px; color: #ff6b6b; font-weight: bold; font-size: 24px; }
+#item-display {
+    position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+    font-size: 48px; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); z-index: 10;
+}
+#minimap-container {
+    position: absolute; top: 15px; right: 15px;
+    border: 2px solid #fff; border-radius: 8px; overflow: hidden; opacity: 0.9; z-index: 10;
+}
+#minimap { background: rgba(0,0,0,0.6); }
+#start-screen {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background: rgba(0,0,0,0.88); color: white; z-index: 20;
+}
+#start-screen h1 { font-size: 48px; margin-bottom: 20px; }
+#start-screen p { font-size: 18px; margin: 8px 0; color: #ccc; }
+#start-btn, #restart-btn {
+    margin-top: 20px; padding: 15px 40px; font-size: 22px;
+    background: linear-gradient(135deg, #ff6b35, #ff2e63); color: white;
+    border: none; border-radius: 30px; cursor: pointer; font-weight: bold;
+    transition: transform 0.2s;
+}
+#start-btn:hover, #restart-btn:hover { transform: scale(1.1); }
+#race-countdown {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-size: 100px; color: #ffdd00; font-weight: bold;
+    text-shadow: 4px 4px 8px rgba(0,0,0,0.8); z-index: 20;
+}
+#finish-screen {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    background: rgba(0,0,0,0.88); color: white; z-index: 20;
+}
+#finish-screen h2 { font-size: 40px; margin-bottom: 20px; }
+.hidden { display: none !important; }
+
+/* --- コース選択 / メッセージ --- */
+#course-display { margin-top: 5px; font-size: 16px; color: #ffe082; }
+#message-toast {
+    position: absolute; top: 20%; left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    padding: 12px 26px; border-radius: 24px;
+    background: rgba(0,0,0,0.72); color: #ffdd00;
+    font-size: 24px; font-weight: bold; opacity: 0;
+    pointer-events: none; z-index: 15;
+    transition: opacity 0.25s, transform 0.25s;
+}
+#message-toast.show { opacity: 1; transform: translateX(-50%) scale(1); }
+#course-list {
+    display: flex; gap: 14px; margin: 18px 0 6px;
+    flex-wrap: wrap; justify-content: center; max-width: 92vw;
+}
+.course-card {
+    width: 250px; padding: 14px 16px; text-align: left; cursor: pointer;
+    background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.35);
+    border-radius: 12px; color: #fff; font-size: 14px;
+    transition: transform 0.2s, background 0.2s, border-color 0.2s;
+}
+.course-card strong { display: block; font-size: 18px; margin-bottom: 6px; }
+.course-card .course-desc { display: block; color: #bbb; margin-bottom: 6px; line-height: 1.4; }
+.course-card .course-meta { display: block; color: #ffdd00; }
+.course-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.16); }
+.course-card.selected { border-color: #ffdd00; background: rgba(255,221,0,0.18); }
+#course-btn {
+    margin-top: 14px; padding: 12px 28px; font-size: 18px;
+    background: linear-gradient(135deg, #3f8efc, #26c6da); color: #fff;
+    border: none; border-radius: 24px; cursor: pointer; font-weight: bold;
+}
+#course-btn:hover { transform: scale(1.08); }
+
